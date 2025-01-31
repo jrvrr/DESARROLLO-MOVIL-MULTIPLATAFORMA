@@ -17,5 +17,9 @@ ion-menu::part(backdrop) {
     --ion-background-color: white;
     --color: black;
   }
+
+  ion-menu-button{
+    width: 130px;
+  }
   
   
