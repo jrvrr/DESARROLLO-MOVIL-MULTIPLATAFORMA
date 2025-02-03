@@ -10,27 +10,35 @@
   </div>
 
   <!--Nosotros-->
-  <div class="nosotros-container" id="nosotros">
-    <ion-grid>
+  <ion-content class="bg-white">
+
+    <div class="nosotros-container" id="nosotros">
+      <ion-grid>
         <ion-row>
           <ion-col class="text-center">
-            <h2 class="title">VANGUARD<br> Sobre nosotros</h2>
+            <h2 class="title">VANGUARD - Sobre Nosotros</h2>
           </ion-col>
         </ion-row>
 
-        <ion-row>
-          <ion-col class="card-container">
-            <ion-card class="custom-card">
-              <ion-img src="assets/img/acerca.png" alt="mision"></ion-img>
-              <ion-card-header>
-                <ion-card-title>Acerca de "Vanguard"</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                La empresa "Vanguard" es una innovadora compañía con años de experiencia en el sector, especializada en
-                la creación de anuncios publicitarios de alta calidad.
-              </ion-card-content>
-            </ion-card>
+        <ion-row class="cards-container">
+          <ion-col class="info-card">
+            <div class="card-content">
+              <ion-img src="assets/icon/acerca.png" alt="mision"></ion-img>
+              <h3>Acerca de "Vanguard"</h3>
+              <p>La empresa "Vanguard" es una innovadora compañía con años de experiencia en el sector, especializada en
+                la creación de anuncios publicitarios de alta calidad.</p>
+            </div>
           </ion-col>
+          <ion-col class="info-card">
+            <div class="card-content">
+              <ion-img src="assets/icon/mision.png" alt="vision"></ion-img>
+              <h3>Nuestra misión</h3>
+              <p>Transformamos la visión de nuestros clientes en impactantes y efectivos proyectos que superan sus
+                expectativas.</p>
+            </div>
+          </ion-col>
+
+
         </ion-row>
     </ion-grid>
   </div>
