@@ -89,8 +89,37 @@
   color: black;
 }
 
-.card-container {
+.cards-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.info-card{
+  max-width: 300px;
+  text-align: center;
+}
+
+.card-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid #ccc;
+  height: 490px;
+}
+
+.card-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+ion-img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  object-fit: cover;
 }
 
