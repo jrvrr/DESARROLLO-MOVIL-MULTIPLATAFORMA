@@ -6,64 +6,38 @@
         <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
+    <ion-content class="menu-content">
+      <!-- Aquí puedes agregar opciones del menú -->
     </ion-content>
   </ion-menu>
 
+  <!-- Contenido principal -->
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
-        <!--Menu-->
+
+        <!-- Botón del menú con logo -->
         <ion-buttons slot="start">
           <ion-menu-button>
-            <img src="assets/icon/logo.vanguard.png" alt="Logo Vanguard">
+            <img src="assets/icon/logo.vanguard.png" alt="Logo Vanguard" style="width: 50px; height: auto;">
           </ion-menu-button>
         </ion-buttons>
 
-        <!-- (es temporal (no he modificado el logo))-->
-        <ion-title id="page-title">Menu ←</ion-title>
+        <!-- Título de la página -->
+        <ion-title id="page-title">Menú</ion-title>
 
-        <!-- Botones-->
+        <!-- Botón de inicio de sesión -->
         <ion-buttons slot="end">
-          <!--inicio-->
-          <ion-button onclick="navigate('home')">
-          <img src="assets/icon/inicio.png">
+          <ion-button onclick="navigate('login')" class="button-design">
+            <p>Iniciar sesión</p>
           </ion-button>
-          <!--Nosotros-->
-          <ion-button onclick="navigate('search')">
-          <img src="assets/icon/nosotros.png">
-          </ion-button>
-          <!--Contactanos-->
-          <ion-button onclick="navigate('library')">
-            <img src="assets/icon/contactanos.png">
-          </ion-button>
-          <div class="button-desing">
-          <ion-button onclick="navigate('login')">
-            <P>Iniciar sesión</P>
-          </ion-button>
-          </div>
         </ion-buttons>
+
       </ion-toolbar>
     </ion-header>
 
-    <!-- Contenedor para las páginas -->
-    <ion-content class="ion-padding">
-      <div id="home-page" class="page active">
-        <h2>Listen Now</h2>
-        <p>Listen now content</p>
-      </div>
-      <div id="radio-page" class="page">
-        <h2>Radio</h2>
-        <p>Radio content</p>
-      </div>
-      <div id="library-page" class="page">
-        <h2>Library</h2>
-        <p>Library content</p>
-      </div>
-      <div id="search-page" class="page">
-        <h2>Search</h2>
-        <p>Search content</p>
-      </div>
+    <ion-content>
     </ion-content>
+
   </div>
 </ion-app>
