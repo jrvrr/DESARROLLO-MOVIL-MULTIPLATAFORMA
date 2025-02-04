@@ -10,29 +10,35 @@
     </ion-content>
   </ion-menu>
 
-  <!-- Contenido principal -->
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
 
-        <!-- Botón del menú con logo -->
+        <!-- Botón menu con el logo -->
         <ion-buttons slot="start">
           <ion-menu-button>
             <img src="assets/icon/logo.vanguard.png" alt="Logo Vanguard">
           </ion-menu-button>
         </ion-buttons>
 
-        <!-- Botón de inicio de sesión -->
+        <!-- Boton login -->
         <ion-buttons slot="end">
-          <ion-button onclick="navigate('login')" class="button-design">
+          <ion-button id="open-modal" class="button-design" fill="outline">
             <p>Iniciar sesión</p>
           </ion-button>
         </ion-buttons>
-
       </ion-toolbar>
     </ion-header>
 
-    <ion-router-outlet></ion-router-outlet>
+    <ion-modal isOpen="true"  cssClass="custom-splash-modal">
+      <ng-template>
+        <div class="splash-content">
+          <img src="assets/icon/logo.vanguard.png" alt="Logo Vanguard" class="logo">
+          <ion-button id="close-modal" expand="block" fill="solid">Ingresar</ion-button>
+        </div>
+      </ng-template>
+    </ion-modal>    
 
+    <ion-router-outlet></ion-router-outlet>
   </div>
 </ion-app>

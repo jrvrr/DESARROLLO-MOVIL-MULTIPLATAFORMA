@@ -30,15 +30,101 @@ ion-toolbar {
 }
 
 .button-design {
-  background-color: #FFC107 !important;
-  color: black !important;
-  font-weight: bold;
-  border-radius: 10px;
+  --background: #FFC107;
+  --color: black; // Texto
+  --border-radius: 10px;
+  --padding-start: 0;
+  --padding-end: 0;
   padding: 8px 16px;
+  border: none;
+  box-shadow: none;
+  background-color: #FFC107;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: white; // Cambia a blanco en hover
+    color: #FFC107; // Texto amarillo
+    transform: scale(1.05); // Pequeño efecto de zoom
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: inherit; // Hereda el color del botón
+  }
 }
 
-.button-design p {
-  margin: 0;
-  font-size: 14px;
-  font-weight: bold;
+ion-button.button-design[fill="outline"] {
+  --background: #FFC107; // Amarillo vibrante
+  --color: #FFC107; // Texto negro
+  --border-color: none; // Borde
+  --border-width: 2px;
+  --padding-start: 0;
+  --padding-end: 0;
+  border-radius: 10px;
+
+  &:hover {
+    --background: #FFC107; // Fondo blanco en hover
+    --color: black; // Texto amarillo
+    transform: scale(1.05); // zoom
+  }
+}
+
+.custom-splash-modal {
+  --width: 80vw;
+  --height: 50vh;
+  --border-radius: 20px;
+  --background: rgba(255, 255, 255, 0.95);
+  --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  --backdrop-opacity: 0.3; /* Permite ver el fondo difuminado */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+}
+
+.custom-splash-modal .modal-wrapper {
+  transform: scale(0.8);
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.custom-splash-modal {
+  --width: 80%;
+  --height: 50%;
+  --border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .splash-content {
+    text-align: center;
+
+    .logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  }
 }
