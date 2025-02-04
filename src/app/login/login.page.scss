@@ -1,0 +1,15 @@
+:root{
+    --ion-background-color: white;
+}
+
+html, body {
+    background-color: white;
+  }
+  
+:host {
+    --ion-background-color: white;
+  }
+
+  ion-item{
+    background-color: yellow;
+  }
