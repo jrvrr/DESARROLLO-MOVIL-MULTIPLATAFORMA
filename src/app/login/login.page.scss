@@ -1,15 +1,68 @@
-:root{
+:root {
     --ion-background-color: white;
-}
-
-html, body {
-    background-color: white;
   }
   
-:host {
-    --ion-background-color: white;
+  html, body, ion-content {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .login-card {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-item {
+    text-color:black;
+    margin-bottom: 15px;
+    --background: white;
+    --border-color: gray;
+    --border-width: 1px;
+    --border-style: solid;
+    border-radius: 5px;
+  
+    ion-input {
+      --background: white;
+      --color: black;
+    }
   }
 
-  ion-item{
-    background-color: yellow;
+  ion-label{
+    --color:black;
+    font-size: 14px;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .register-text {
+    margin-top: 15px;
+  }
+  
+  h2, p {
+    color: black;
+  }
+
+  ion-checkbox{
+    color:black;
   }
