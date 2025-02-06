@@ -1,13 +1,112 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="register-container">
+    <h1>Regístrate</h1>
+    <p>Gracias por unirte a nosotros.</p>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-item>
+      <ion-input placeholder="Nombre" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Apellido Paterno*" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Apellido Materno*" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Teléfono*" required type="tel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Correo electrónico*" required type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Contraseña*" required type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Confirmar Contraseña*" required type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" class="register-btn">Registrarme</ion-button>
+
+    <ion-button expand="block" fill="outline" class="google-btn">
+      <ion-icon name="logo-google" slot="start"></ion-icon>
+      Registro con Google
+    </ion-button>
+
+    <p class="login-text">
+      ¿Ya tienes una cuenta? <a routerLink="/login">Inicia Sesión</a>
+    </p>
+
+    <div class="footer-logo">
+      <img src="assets/vanguard-logo.png" alt="Vanguard Industries">
+    </div>
+  </div>
 </ion-content>
+
+<style lang="scss">
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(to bottom, #bfc3d0, #2e344e);
+  height: 100%;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+
+  ion-item {
+    --background: transparent;
+    --border-color: #4b546e;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+
+    ion-input {
+      color: #fff;
+    }
+  }
+
+  .register-btn {
+    margin-top: 16px;
+    background-color: #14213d;
+    color: #fff;
+    border-radius: 8px;
+  }
+
+  .google-btn {
+    margin-top: 8px;
+    color: #000;
+    background-color: #fff;
+    --border-color: #fff;
+    border-radius: 8px;
+  }
+
+  .login-text {
+    margin-top: 16px;
+    font-size: 14px;
+
+    a {
+      color: #008cff;
+      text-decoration: none;
+    }
+  }
+
+  .footer-logo {
+    margin-top: 24px;
+
+    img {
+      width: 100px;
+    }
+  }
+}
+</style>
+

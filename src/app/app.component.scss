@@ -12,6 +12,30 @@ html, body {
   --ion-background-color: white;
 }
 
+
+//menu
+.menu-content {
+  --background: white;
+}
+
+ion-item {
+  --background: white !important;
+  --color: black !important;
+}
+
+ion-label {
+  color: black !important;
+}
+
+ion-icon {
+  color: black !important;
+}
+
+ion-list {
+  --background: white;
+}
+
+
 ion-menu::part(container) {
   background-color: white !important;
   border-radius: 0 20px 20px 0;
