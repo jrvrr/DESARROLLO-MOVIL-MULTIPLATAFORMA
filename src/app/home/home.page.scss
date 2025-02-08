@@ -45,20 +45,17 @@
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-
+  .bienvenido, .slogan, .descripcion {
+    font-weight: bold;
+  }
+  
   .bienvenido {
     font-size: 1.5rem;
-    font-weight: bold;
     border-bottom: 3px solid white;
-    display: inline-block;
-    padding-bottom: 5px;
   }
 
   .slogan {
     font-size: 2rem;
-    font-weight: bold;
     margin-top: 20px;
   }
 
@@ -67,6 +64,7 @@
     margin-top: 10px;
   }
 }
+
 
 .otro-contenido {
   padding: 20px;

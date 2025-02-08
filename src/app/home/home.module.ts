@@ -11,9 +11,15 @@ import { HomePageRoutingModule } from './home-routing.module';
 @NgModule({
   imports: [
     CommonModule,
+    HomePageRoutingModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    RouterModule.forChild([
+      {
+        path: '',
+        component: HomePage
+      }
+    ])
   ],
   declarations: [HomePage]
 })
