@@ -3,27 +3,49 @@
     <h2>Iniciar Sesión</h2>
     <p>Nos alegramos de tenerte de vuelta.</p>
 
-    <ion-item>
-      <ion-label position="floating">Correo electrónico</ion-label>
-      <ion-input type="email"></ion-input>
-    </ion-item>
-    
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-    
-    <div class="options">
-      <ion-checkbox>Recuérdame</ion-checkbox>
-      <a href="#">Olvidé mi contraseña</a>
-    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <p *ngIf="email?.invalid && email?.touched" class="error-text">
+        {{ email?.hasError('required') ? 'El correo es obligatorio' :
+           email?.hasError('minlength') ? 'Debe tener más de 6 caracteres' :
+           'Debe ser un correo válido de Gmail o Email.com' }}
+      </p>
 
-    <ion-button expand="block" fill="solid" color="primary">Acceder</ion-button>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="password" [type]="showPassword ? 'text' : 'password'"></ion-input>
+        <ion-icon 
+          slot="end" 
+          [name]="showPassword ? 'eye-off' : 'eye'" 
+          (click)="togglePasswordVisibility()">
+        </ion-icon>
+      </ion-item>
+      <p *ngIf="password?.invalid && password?.touched" class="error-text">
+        {{ password?.hasError('required') ? 'La contraseña es obligatoria' :
+           password?.hasError('minlength') ? 'Debe tener al menos 8 caracteres' :
+           'Debe incluir letras y números' }}
+      </p>
+
+      <div class="options">
+        <ion-checkbox formControlName="rememberMe"></ion-checkbox>
+        <a href="#">Olvidé mi contraseña</a>
+      </div>
+
+      <ion-button routerLink="/home" expand="block" fill="solid" color="primary" type="submit" [disabled]="loginForm.invalid">
+        Acceder
+      </ion-button>      
+    </form>
+
     <ion-button expand="block" fill="outline" color="medium">
       <ion-icon name="logo-google" slot="start"></ion-icon>
       Inicia Sesión con Google
     </ion-button>
 
-    <p class="register-text">¿No tienes una cuenta? <a routerLink="/register">Regístrate</a></p>
+    <p class="register-text">
+      ¿No tienes una cuenta? <a routerLink="/register">Regístrate</a>
+    </p>
   </div>
 </ion-content>

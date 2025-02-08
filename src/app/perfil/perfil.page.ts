@@ -11,7 +11,7 @@ import { Capacitor } from '@capacitor/core';
 })
 export class PerfilPage implements OnInit {
   profilePhoto: string = 'assets/icon/perfilvanguard.png';
-  
+
   // Datos del formulario
   nombre: string = '';
   apellidoPaterno: string = '';
@@ -25,7 +25,21 @@ export class PerfilPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('PerfilPage initialized.');
+    this.cargarDatosUsuario();
+  }
+
+  cargarDatosUsuario(): void {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const user = JSON.parse(userData);
+      this.nombre = user.name || '';
+      this.apellidoPaterno = user.lastName || '';
+      this.apellidoMaterno = user.middleName || '';
+      this.telefono = user.phone || '';
+      this.correo = user.email || '';
+    } else {
+      this.showAlert('Sin datos', 'No se encontró información de usuario. Por favor, regístrate.');
+    }
   }
 
   async requestCameraPermission(): Promise<boolean> {
@@ -155,15 +169,17 @@ export class PerfilPage implements OnInit {
       return;
     }
 
-    console.log('Enviando datos a verfil:', {
-      nombre: this.nombre,
-      apellidoPaterno: this.apellidoPaterno,
-      apellidoMaterno: this.apellidoMaterno,
-      telefono: this.telefono,
-      correo: this.correo,
-      fotoPerfil: this.profilePhoto,
-    });
+    // Actualizar los datos en localStorage
+    const updatedUser = {
+      name: this.nombre,
+      lastName: this.apellidoPaterno,
+      middleName: this.apellidoMaterno,
+      phone: this.telefono,
+      email: this.correo,
+      photo: this.profilePhoto,
+    };
 
+    localStorage.setItem('user', JSON.stringify(updatedUser));
     this.showAlert('Éxito', 'Tu información ha sido guardada correctamente.');
   }
 

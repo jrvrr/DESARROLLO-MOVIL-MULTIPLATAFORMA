@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPageModule } from './login/login.module';
 
+import { ReactiveFormsModule } from '@angular/forms'; 
+
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [LoginPageModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [LoginPageModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

@@ -77,8 +77,22 @@
     </ion-grid>
   </div>
 
-  <div>
-    <!--este div es para el carrusel de fotos, no me quedo -->
+  <div class="color-ser">
+    <p class="text-ser">Servicios y prodcutos</p>
+    <ion-card class="carousel">
+      <img [src]="slides[currentIndex].image" class="slide-image" />
+    
+      <div class="nav-buttons">
+        <ion-button fill="clear" (click)="prevSlide()" [disabled]="currentIndex === 0">
+          <ion-icon name="chevron-back"></ion-icon>
+        </ion-button>
+    
+        <ion-button fill="clear" (click)="nextSlide()" [disabled]="currentIndex === slides.length - 1">
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card>
+    
   </div>
 
   <div class="contactanos">

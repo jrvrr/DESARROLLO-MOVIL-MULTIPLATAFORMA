@@ -1,39 +1,69 @@
 <ion-content>
   <div class="register-container">
     <h1 class="text-size">Regístrate</h1>
-    <p class="">Gracias por unirte a nosotros.</p>
+    <p>Gracias por unirte a nosotros.</p>
 
-    <ion-item>
-      <ion-input placeholder="Nombre" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Apellido Paterno" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Apellido Materno" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Teléfono" required type="tel"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Correo electrónico" required type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Contraseña" required type="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Confirmar Contraseña" required type="password"></ion-input>
-    </ion-item>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <ion-item [class.invalid]="name?.invalid && name?.touched">
+        <ion-input formControlName="name" placeholder="Nombre" required></ion-input>
+      </ion-item>
+      <div *ngIf="name?.invalid && name?.touched" class="error-text">
+        El nombre es obligatorio y solo debe contener letras.
+      </div>
 
-    <ion-button expand="block" class="register-btn">Registrarme</ion-button>
+      <ion-item [class.invalid]="lastName?.invalid && lastName?.touched">
+        <ion-input formControlName="lastName" placeholder="Apellido Paterno" required></ion-input>
+      </ion-item>
+      <div *ngIf="lastName?.invalid && lastName?.touched" class="error-text">
+        El apellido paterno es obligatorio y solo debe contener letras.
+      </div>
 
-    <ion-button expand="block" fill="outline" class="google-btn">
+      <ion-item [class.invalid]="middleName?.invalid && middleName?.touched">
+        <ion-input formControlName="middleName" placeholder="Apellido Materno" required></ion-input>
+      </ion-item>
+      <div *ngIf="middleName?.invalid && middleName?.touched" class="error-text">
+        El apellido materno es obligatorio y solo debe contener letras.
+      </div>
+
+      <ion-item [class.invalid]="phone?.invalid && phone?.touched">
+        <ion-input formControlName="phone" placeholder="Teléfono" required type="tel"></ion-input>
+      </ion-item>
+      <div *ngIf="phone?.invalid && phone?.touched" class="error-text">
+        El teléfono debe tener 10 dígitos.
+      </div>
+
+      <ion-item [class.invalid]="email?.invalid && email?.touched">
+        <ion-input formControlName="email" placeholder="Correo electrónico" required type="email"></ion-input>
+      </ion-item>
+      <div *ngIf="email?.invalid && email?.touched" class="error-text">
+        Proporcione un correo electrónico válido (ejemplo&#64;gmail.com).
+      </div>
+      
+
+      <ion-item [class.invalid]="password?.invalid && password?.touched">
+        <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Contraseña" required></ion-input>
+        <ion-icon [name]="showPassword ? 'eye' : 'eye-off'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+      <div *ngIf="password?.invalid && password?.touched" class="error-text">
+        La contraseña debe tener al menos 8 caracteres, incluyendo letras y números.
+      </div>
+    
+      <ion-item [class.invalid]="confirmPassword?.invalid && confirmPassword?.touched || registerForm.errors?.['mismatch']">
+        <ion-input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" placeholder="Confirmar Contraseña" required></ion-input>
+        <ion-icon [name]="showConfirmPassword ? 'eye' : 'eye-off'" slot="end" (click)="toggleConfirmPasswordVisibility()"></ion-icon>
+      </ion-item>
+      <div *ngIf="registerForm.errors?.['mismatch'] && confirmPassword?.touched" class="error-text">
+        Las contraseñas no coinciden.
+      </div>      
+
+      <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">Registrarme</ion-button>
+    </form>
+
+    <ion-button expand="block" fill="outline">
       <ion-icon name="logo-google" slot="start"></ion-icon>
       Registro con Google
     </ion-button>
 
-    <p class="login-text">
-      ¿Ya tienes una cuenta? <a routerLink="/login">Inicia Sesión</a>
-    </p>
+    <p>¿Ya tienes una cuenta? <a routerLink="/login">Inicia Sesión</a></p>
   </div>
 </ion-content>
