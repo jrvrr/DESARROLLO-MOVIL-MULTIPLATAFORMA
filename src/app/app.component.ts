@@ -11,11 +11,26 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   constructor(private modalController: ModalController, private router: Router) {}
+
   ngOnInit(): void {
-    this.router.navigate(['/home']);
+    // Redirige a 'home' solo si no hay una ruta activa
+    if (this.router.url === '/' || this.router.url === '') {
+      this.router.navigate(['/home']);
+    }
   }
 
+  /**
+   * Método para registrar navegación
+   */
+  logNavegacion(ruta: string): void {
+    console.log(`Navegando a: ${ruta}`);
+  }
+
+  /**
+   * Abre el modal de inicio de sesión
+   */
   async openLoginModal() {
+    // Desactiva las interacciones en el contenido principal mientras el modal está abierto
     const content = document.getElementById('main-content');
     if (content) content.setAttribute('inert', 'true'); // Desactiva interacciones
   
@@ -23,15 +38,14 @@ export class AppComponent implements OnInit {
       component: LoginPage,
       breakpoints: [0, 0.5, 1],
       initialBreakpoint: 0.5,
-      backdropDismiss: true,
+      backdropDismiss: true, // Permite cerrar el modal al tocar el fondo
     });
   
+    // Reactiva las interacciones al cerrar el modal
     modal.onDidDismiss().then(() => {
       if (content) content.removeAttribute('inert'); // Reactiva interacciones
     });
   
     await modal.present();
-  
-
-}
+  }
 }

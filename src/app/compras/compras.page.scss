@@ -1,0 +1,85 @@
+.timeline-row {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .timeline-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 20px;
+  }
+
+  ion-grid{
+    margin-top: 120px;
+  }
+  
+  .circle {
+    width: 16px;
+    height: 16px;
+    background-color: #0078d4; /* Azul por defecto */
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    margin: 47px;
+  }
+  
+  .circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: calc(100% - 16px); /* La línea se ajusta entre los puntos */
+    background-color: #0078d4;
+    z-index: 1; /* Detrás de los círculos */
+  }
+  
+  .phase-card {
+    margin-bottom: 20px;
+  }
+  
+  ion-card {
+    color: black;
+    border-radius: 12px;
+    background-color: #e3f2fd;
+  }
+  
+  ion-card-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  ionc-card-title{
+    color: black;
+  }
+
+  .hydrated{
+    color: black;
+  }
+
+  .info-icon {
+    font-size: 20px;
+    float: right;
+    color: #1976d2; /* Azul oscuro */
+    cursor: pointer;
+  }
+  

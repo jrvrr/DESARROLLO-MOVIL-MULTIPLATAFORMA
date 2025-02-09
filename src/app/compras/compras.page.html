@@ -1,13 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>compras</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="timeline-row">
+      <ion-col size="1" class="timeline-line">
+        <div class="circle" *ngFor="let phase of phases"></div>
+      </ion-col>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">compras</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <ion-col size="11">
+        <div *ngFor="let phase of phases" class="phase-card">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ phase.title }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              {{ phase.description }}
+              <ion-icon
+                name="information-circle-outline"
+                class="info-icon"
+                (click)="downloadPDF(phase.pdf)"
+              ></ion-icon>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

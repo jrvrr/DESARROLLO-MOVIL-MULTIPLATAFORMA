@@ -47,9 +47,13 @@ ion-menu-button {
   height: 58px;
 }
 
+.toolbar-container{
+  background-color: #090C15;
+}
+
 ion-toolbar {
-  --background: white;
-  --ion-background-color: white;
+  --background: #090C15;
+  --ion-background-color: #090C15;
   --color: black;
 }
 
