@@ -77,24 +77,53 @@
     </ion-grid>
   </div>
 
+  <!--Carrusel de imagenes-->
   <div class="color-ser">
-    <p class="text-ser">Servicios y prodcutos</p>
+    <p class="text-ser">Nuestros Productos y Servicios</p>
+    <p class="subtitulo">Descubre la variedad de productos y servicios que ofrecemos para mejorar la visibilidad de tu negocio.</p>
+  
+    <!-- Carrusel de Productos -->
+    <h2 class="categoria">Productos</h2>
     <ion-card class="carousel">
-      <img [src]="slides[currentIndex].image" class="slide-image" />
-    
+      <div class="slide-content">
+        <p class="slide-title">{{ productos[currentIndexProd].title }}</p>
+        <img [src]="productos[currentIndexProd].image" class="slide-image" />
+        <p class="slide-description">{{ productos[currentIndexProd].description }}</p>
+      </div>
+  
       <div class="nav-buttons">
-        <ion-button fill="clear" (click)="prevSlide()" [disabled]="currentIndex === 0">
+        <ion-button fill="clear" (click)="prevSlideProd()">
           <ion-icon name="chevron-back"></ion-icon>
         </ion-button>
-    
-        <ion-button fill="clear" (click)="nextSlide()" [disabled]="currentIndex === slides.length - 1">
+        <ion-button fill="clear" (click)="nextSlideProd()">
           <ion-icon name="chevron-forward"></ion-icon>
         </ion-button>
       </div>
     </ion-card>
-    
+  
+    <!-- Carrusel de Servicios -->
+    <h2 class="categoria">Servicios</h2>
+    <ion-card class="carousel">
+      <div class="slide-content">
+        <p class="slide-title">{{ servicios[currentIndexServ].title }}</p>
+        <img [src]="servicios[currentIndexServ].image" class="slide-image" />
+        <p class="slide-description">{{ servicios[currentIndexServ].description }}</p>
+      </div>
+  
+      <div class="nav-buttons">
+        <ion-button fill="clear" (click)="prevSlideServ()">
+          <ion-icon name="chevron-back"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="nextSlideServ()">
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card>
   </div>
-
+  
+  
+  
+<!--Contactanos-->
   <div class="contactanos">
     <div class="container">
       <div class="row">
@@ -134,9 +163,12 @@
         <div class="info-container">
           <div class="contact-info">
             <h3>Información de contacto</h3>
-            <p><ion-icon name="location-outline"></ion-icon> Camino a Cinco encinos...</p>
-            <p><ion-icon name="mail-outline"></ion-icon> vanguardmex1&#64;gmail.com</p>
-            <p><ion-icon name="call-outline"></ion-icon> +52 271 139 6425</p>
+          <div class="icon-height">
+            <p><ion-icon name="location-outline"></ion-icon>Camino a 5 Encinos 200 m antes de la, Col. La Agrícola, 94500 U.H. San José de Abajo, Ver., Mexico</p>
+            <p><ion-icon name="mail-outline"></ion-icon><a href="mailto:vanguardmex1@gmail.com">vanguardmex1&#64;gmail.com</a>
+            </p>
+            <p><ion-icon name="call-outline"></ion-icon><a href="tel:+522711396425">+52 271 139 6425</a></p>
+          </div>
             <div class="social-links">
               <a href="https://www.facebook.com/vanguardmex/" target="_blank" class="social-icon facebook">
                 <img src="/assets/icon/facebook.png" alt="Facebook">
