@@ -51,7 +51,7 @@ ion-button {
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 8px;
-  background: yellow !important;
+  background: #FFC107 !important;
   color: black !important;
 }
 
@@ -61,4 +61,30 @@ ion-button {
 
 ion-card-content {
   background: white !important; 
+}
+
+.button-yellow {
+  --background: #FFC107;
+  --color: black; // Texto
+  --border-radius: 10px;
+  --padding-start: 0;
+  --padding-end: 0;
+  padding: 8px 16px;
+  border: none;
+  box-shadow: none;
+  background-color: #FFC107;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: white; // Cambia a blanco en hover
+    color: #FFC107; // Texto amarillo
+    transform: scale(1.05); // Pequeño efecto de zoom
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+
+  }
 }

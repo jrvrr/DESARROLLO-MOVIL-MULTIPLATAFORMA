@@ -12,6 +12,14 @@ html, body {
   --ion-background-color: white;
 }
 
+.menu-color{
+  background-color: #090C15;
+}
+
+.menu-color ion-title{
+  color: white;
+}
+
 
 //menu
 .menu-content {
@@ -37,7 +45,7 @@ ion-list {
 
 
 ion-menu::part(container) {
-  background-color: white !important;
+  background-color: black !important;
   border-radius: 0 20px 20px 0;
   box-shadow: 4px 0px 16px rgba(7, 4, 148, 0.3);
 }

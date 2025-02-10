@@ -9,26 +9,31 @@
       <ion-avatar class="profile-photo">
         <img [src]="profilePhoto" alt="Foto de perfil">
       </ion-avatar>
-      <ion-button expand="block" class="photo-btn" (click)="changePhoto()">Cambiar Foto</ion-button>
+      <ion-button expand="block" color="none" class="ion-no-padding" style="display: flex; align-items: center; justify-content: center;" (click)="changePhoto()">
+        <p class="new-button">Cambiar Foto</p>
+      </ion-button>
     </div>
 
     <ion-item>
-      <ion-input placeholder="Nombre" [(ngModel)]="nombre" required></ion-input>
+      <ion-input placeholder="Nombre" class="placeholder" [(ngModel)]="nombre" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Apellido Paterno" [(ngModel)]="apellidoPaterno" required></ion-input>
+      <ion-input placeholder="Apellido Paterno" class="placeholder" [(ngModel)]="apellidoPaterno" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Apellido Materno" [(ngModel)]="apellidoMaterno" required></ion-input>
+      <ion-input placeholder="Apellido Materno" class="placeholder" [(ngModel)]="apellidoMaterno" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Teléfono" [(ngModel)]="telefono" required type="tel"></ion-input>
+      <ion-input placeholder="Teléfono" class="placeholder" [(ngModel)]="telefono" required type="tel"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Correo electrónico" [(ngModel)]="correo" required type="email"></ion-input>
+      <ion-input placeholder="Correo electrónico" class="placeholder" [(ngModel)]="correo" required type="email"></ion-input>
     </ion-item>
 
-    <ion-button expand="block" class="save-btn" (click)="guardarCambios()">Guardar Cambios</ion-button>
+    <ion-button expand="block" color="none" class="ion-no-padding" style="display: flex; align-items: center; justify-content: center;"  (click)="guardarCambios()">
+      <p class="new-button">Guardar Cambios</p>
+
+    </ion-button>
 
     <p class="logout-text">
       ¿Deseas salir de tu cuenta? <a routerLink="/login">Cerrar Sesión</a>

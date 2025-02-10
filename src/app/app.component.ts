@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
   
     const modal = await this.modalController.create({
       component: LoginPage,
-      breakpoints: [0, 0.5, 1],
-      initialBreakpoint: 0.5,
+      breakpoints: [0, 1, 1],
+      initialBreakpoint: 1,
       backdropDismiss: true, // Permite cerrar el modal al tocar el fondo
     });
   
