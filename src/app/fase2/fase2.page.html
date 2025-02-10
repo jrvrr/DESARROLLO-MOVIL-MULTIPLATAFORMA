@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Fase 2: Propuesta de la Empresa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Propuesta</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>A continuación, puedes visualizar la propuesta enviada por la empresa.</p>
+        <div class="pdf-container">
+          <iframe [src]="pdfSrc" class="pdf-viewer"></iframe>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="full" color="success" (click)="continuar()">Aceptar Propuesta</ion-button>
+  </div>
+</ion-content>

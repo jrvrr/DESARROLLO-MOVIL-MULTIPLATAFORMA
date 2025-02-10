@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Fase 1: Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Datos del Pedido</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Título</ion-label>
+            <ion-input [(ngModel)]="pedido.titulo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Descripción</ion-label>
+            <ion-textarea [(ngModel)]="pedido.descripcion"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Medidas</ion-label>
+            <ion-input [(ngModel)]="pedido.medidas"></ion-input>
+          </ion-item>
+          <ion-item class="file-input">
+            <ion-label>Imagen de referencia</ion-label>
+            <input type="file" (change)="onFileSelected($event)">
+          </ion-item>    
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="full" color="success" (click)="subirPedido()">Enviar Pedido</ion-button>
+  </div>
+</ion-content>

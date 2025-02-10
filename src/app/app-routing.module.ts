@@ -33,6 +33,22 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'fase1',
+    loadChildren: () => import('./fase1/fase1.module').then( m => m.Fase1PageModule)
+  },
+  {
+    path: 'fase2',
+    loadChildren: () => import('./fase2/fase2.module').then( m => m.Fase2PageModule)
+  },
+  {
+    path: 'fase3',
+    loadChildren: () => import('./fase3/fase3.module').then( m => m.Fase3PageModule)
+  },
+  {
+    path: 'fase4',
+    loadChildren: () => import('./fase4/fase4.module').then( m => m.Fase4PageModule)
+  },
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@
 
       <ion-col size="11">
         <div *ngFor="let phase of phases" class="phase-card">
-          <ion-card>
+          <ion-card (click)="goToPhase(phase.route)">
             <ion-card-header>
               <ion-card-title>{{ phase.title }}</ion-card-title>
             </ion-card-header>
@@ -16,8 +16,8 @@
               <ion-icon
                 name="information-circle-outline"
                 class="info-icon"
-                (click)="downloadPDF(phase.pdf)"
-              ></ion-icon>
+                (click)="downloadPDF(phase.pdf)">
+              </ion-icon>
             </ion-card-content>
           </ion-card>
         </div>

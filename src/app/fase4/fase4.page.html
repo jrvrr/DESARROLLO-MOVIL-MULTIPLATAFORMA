@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Fase 4: Fecha de Entrega</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <!-- Calendario de Entrega -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Fecha de Entrega</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Pedido realizado:</strong> {{ fechaPedido | date: 'fullDate' }}</p>
+        <p><strong>Fecha estimada de entrega:</strong> {{ fechaEntrega | date: 'fullDate' }}</p>
+        <ion-datetime [value]="fechaEntrega" readonly></ion-datetime>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Botón de Calificación -->
+    <ion-button expand="full" color="warning" (click)="abrirCalificacion()">Califícanos</ion-button>
+  </div>
+
+  <!-- Modal de Advertencia -->
+  <ion-modal #modalCalificacion>
+    <ng-template>
+      <div class="modal-container">
+        <div class="feedback-container">
+          <h2>¡Ayúdanos a mejorar!</h2>
+          <div class="stars">
+            <ion-icon 
+              *ngFor="let star of stars; let i = index" 
+              [name]="i < rating ? 'star' : 'star-outline'" 
+              (click)="setRating(i + 1)"
+              class="star-icon">
+            </ion-icon>
+          </div>
+
+          <ion-item>
+            <ion-label position="floating">Nombre*</ion-label>
+            <ion-input [(ngModel)]="feedback.name" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Apellidos*</ion-label>
+            <ion-input [(ngModel)]="feedback.lastName" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Correo Electrónico*</ion-label>
+            <ion-input [(ngModel)]="feedback.email" type="email" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Teléfono*</ion-label>
+            <ion-input [(ngModel)]="feedback.phone" type="tel" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Mensaje*</ion-label>
+            <ion-textarea [(ngModel)]="feedback.message" required></ion-textarea>
+          </ion-item>
+
+          <ion-button expand="block" (click)="submitFeedback()">Enviar</ion-button>
+          <ion-button color="success" (click)="cerrarModal()">Cerrar</ion-button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

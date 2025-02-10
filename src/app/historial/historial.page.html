@@ -1,13 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>historial</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Historial</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">historial</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="container">
+    <!-- Resumen de Pedido -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Resumen del Pedido</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Pedido realizado:</strong> {{ fechaPedido | date: 'fullDate' }}</p>
+        <p><strong>Fecha estimada de entrega:</strong> {{ fechaEntrega | date: 'fullDate' }}</p>
+        <p><strong>Estado:</strong> {{ estadoPedido }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Mensajes de Calificación -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Comentarios</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="historialCalificaciones.length > 0; else noComentarios">
+          <ion-list>
+            <ion-item *ngFor="let comentario of historialCalificaciones">
+              <ion-label>
+                <h3>{{ comentario.name }} {{ comentario.lastName }}</h3>
+                <p>{{ comentario.message }}</p>
+                <p><strong>Calificación:</strong> {{ comentario.rating }}/5</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+        <ng-template #noComentarios>
+          <p>No hay comentarios registrados.</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Botón para Descargar PDF -->
+    <ion-button expand="block" color="secondary" (click)="descargarPDF()">Descargar PDF</ion-button>
+  </div>
 </ion-content>
