@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { DataService } from '../services/data.service';
 
 @Component({
   standalone: false,
@@ -14,13 +15,15 @@ export class LoginPage implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private alertController: AlertController
-  ) {
+    private alertController: AlertController,
+    private dataService: DataService
+  )   
+  {
     this.loginForm = this.fb.group({
       email: ['', [
         Validators.required,
         Validators.email,
-        Validators.pattern('^[a-zA-Z0-9._%+-]+@(gmail\\.com|email\\.com)$') 
+        Validators.pattern('^[a-zA-Z0-9._%+-]+@(gmail\\.com|email\\.com|hotmail\\.com|outlook\\.com)$') 
       ]],
       password: ['', [
         Validators.required,
@@ -43,6 +46,8 @@ export class LoginPage implements OnInit {
       });
     }
   }
+
+
 
   async login() {
     const email = this.loginForm.value.email;
@@ -72,6 +77,7 @@ export class LoginPage implements OnInit {
   }
   
 
+  
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
@@ -92,4 +98,6 @@ export class LoginPage implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
+
+
 }

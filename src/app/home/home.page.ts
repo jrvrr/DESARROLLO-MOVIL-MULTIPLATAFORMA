@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { LoginPage } from '../login/login.page';
+
 
 @Component({
   standalone: false,
@@ -25,6 +28,11 @@ export class HomePage {
   currentIndexProd = 0;
   currentIndexServ = 0;
 
+  constructor(private modalController: ModalController) {
+
+  }
+
+  
   prevSlideProd() {
     this.currentIndexProd = (this.currentIndexProd - 1 + this.productos.length) % this.productos.length;
   }
@@ -40,4 +48,24 @@ export class HomePage {
   nextSlideServ() {
     this.currentIndexServ = (this.currentIndexServ + 1) % this.servicios.length;
   }
+
+    async openLoginModal() {
+      // Desactiva las interacciones en el contenido principal mientras el modal está abierto
+      const content = document.getElementById('main-content');
+      if (content) content.setAttribute('inert', 'true'); // Desactiva interacciones
+    
+      const modal = await this.modalController.create({
+        component: LoginPage,
+        breakpoints: [0, 1, 1],
+        initialBreakpoint: 1,
+        backdropDismiss: true, // Permite cerrar el modal al tocar el fondo
+      });
+    
+      // Reactiva las interacciones al cerrar el modal
+      modal.onDidDismiss().then(() => {
+        if (content) content.removeAttribute('inert'); // Reactiva interacciones
+      });
+    
+      await modal.present();
+    }
 }

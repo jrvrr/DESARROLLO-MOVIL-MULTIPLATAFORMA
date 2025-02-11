@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular'; // Asegúrate de importar correctamente
+import { DataService } from '../services/data.service';
 
 @Component({
   standalone: false,
@@ -16,9 +18,29 @@ export class ComprasPage implements OnInit {
     { title: 'Fase 4', description: 'Fecha de entrega', route:'/fase4', pdf: 'fase4.pdf' }
   ];
 
-  constructor(private navCtrl: NavController) {}
+  visible: boolean = false;
+  menu: string = '';
 
-  ngOnInit(): void {}
+  constructor(private navCtrl: NavController,
+    private route: ActivatedRoute,
+    private dataService: DataService
+  ) {}
+
+  ngOnInit(): void {
+
+    const menu = this.route.snapshot.paramMap.get('menu');
+    const booleano = menu === 'true'; 
+    this.menu = menu ?? '';
+    this.enviarMensaje();
+  }
+
+
+
+  
+  enviarMensaje() {
+    this.dataService.cambiarMensaje(this.menu);
+  }
+
 
   goToPhase(route: string) {
     this.navCtrl.navigateForward(route);

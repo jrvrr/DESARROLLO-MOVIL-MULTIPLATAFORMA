@@ -11,30 +11,33 @@
       <p *ngIf="email?.invalid && email?.touched" class="error-text">
         {{ email?.hasError('required') ? 'El correo es obligatorio' :
            email?.hasError('minlength') ? 'Debe tener más de 6 caracteres' :
-           'Debe ser un correo válido de Gmail o Email.com' }}
+           'Introduce un dominio de correo valido' }}
       </p>
 
       <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
+        <ion-label position="floating" color="dark">Contraseña</ion-label>
         <ion-input formControlName="password" [type]="showPassword ? 'text' : 'password'"></ion-input>
         <ion-icon 
-          slot="end" 
+          class="ion-padding-top"
+          color="dark"
+          slot="end"
           [name]="showPassword ? 'eye-off' : 'eye'" 
           (click)="togglePasswordVisibility()">
         </ion-icon>
       </ion-item>
       <p *ngIf="password?.invalid && password?.touched" class="error-text">
         {{ password?.hasError('required') ? 'La contraseña es obligatoria' :
-           password?.hasError('minlength') ? 'Debe tener al menos 8 caracteres' :
-           'Debe incluir letras y números' }}
+           password?.hasError('minlength') ? '' :
+           '' 
+           }}
       </p>
 
       <div class="options">
-        <ion-checkbox formControlName="rememberMe"></ion-checkbox>
+        <ion-checkbox formControlName="rememberMe">Recuerdame</ion-checkbox>
         <a href="#">Olvidé mi contraseña</a>
       </div>
 
-      <ion-button routerLink="/home" expand="block" fill="solid" color="primary" type="submit" [disabled]="loginForm.invalid">
+      <ion-button [routerLink]="['/compras', 'true']" expand="block" fill="solid" color="primary" type="submit" [disabled]="loginForm.invalid">
         Acceder
       </ion-button>      
     </form>

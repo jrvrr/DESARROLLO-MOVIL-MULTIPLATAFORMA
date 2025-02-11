@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { LoginPage } from './login/login.page';
 import { Router } from '@angular/router';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +11,33 @@ import { Router } from '@angular/router';
   standalone: false,
 })
 export class AppComponent implements OnInit {
-  constructor(private modalController: ModalController, private router: Router) {}
+  menuVisible: boolean = false;
+  mensaje: string = '';
+
+  constructor(private modalController: ModalController, private router: Router, private dataService: DataService) {}
 
   ngOnInit(): void {
     // Redirige a 'home' solo si no hay una ruta activa
     if (this.router.url === '/' || this.router.url === '') {
       this.router.navigate(['/home']);
     }
+
+
+    this.dataService.mensajeActual.subscribe((msg) => {
+      this.mensaje = msg;
+      console.log(msg);
+      this.menuVisible = this.mensaje === 'true'; 
+    });
   }
 
-  /**
-   * Método para registrar navegación
-   */
+  mensajeHijo: string = '';
+
+  recibirMensaje(mensaje: string) {
+    this.mensajeHijo = mensaje;
+    this.menuVisible = mensaje === 'true'; 
+  }
+  
+
   logNavegacion(ruta: string): void {
     console.log(`Navegando a: ${ruta}`);
   }

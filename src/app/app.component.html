@@ -1,6 +1,6 @@
 <ion-app>
   <!-- Menú -->
-  <ion-menu contentId="main-content">
+  <ion-menu contentId="main-content" id="menu-id" *ngIf="menuVisible">
     <ion-header>
       <ion-toolbar class="menu-color">
         <ion-title color="white">Menú</ion-title>
@@ -13,7 +13,7 @@
           <ion-label>Inicio</ion-label>
         </ion-item>
         
-        <ion-item routerLink="/compras" routerDirection="root" (click)="logNavegacion('compras')">
+        <ion-item [routerLink]="['/compras', 'true']" routerDirection="root" (click)="logNavegacion('compras')">
           <ion-icon name="cart-outline" slot="start"></ion-icon>
           <ion-label>Compras</ion-label>
         </ion-item>
@@ -32,7 +32,7 @@
   </ion-menu>
 
   <div class="ion-page" id="main-content">
-    <ion-header>
+    <ion-header *ngIf="menuVisible">
       <ion-toolbar>
 
         <!-- Botón menú con logo -->
@@ -43,15 +43,23 @@
         </ion-buttons>
 
         <!-- Botón login-->
-        <ion-buttons slot="end">
+        <!-- <ion-buttons slot="end">
           <ion-button class="button-design color-white" fill="outline" (click)="openLoginModal()">
             <p style="color: white">Iniciar sesión</p>
           </ion-button>
-        </ion-buttons>
+        </ion-buttons> -->
 
       </ion-toolbar>
     </ion-header>
 
     <ion-router-outlet id="main-content"></ion-router-outlet>
+    <p></p>
   </div>
 </ion-app>
+
+
+<script>
+
+  document.getElementById("menu-id").style.display = "none";
+
+</script>

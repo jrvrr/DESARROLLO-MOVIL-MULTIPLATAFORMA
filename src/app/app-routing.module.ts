@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'compras',
+    path: 'compras/:menu',
     loadChildren: () => import('./compras/compras.module').then( m => m.ComprasPageModule)
   },
   {
@@ -48,7 +48,11 @@ const routes: Routes = [
   {
     path: 'fase4',
     loadChildren: () => import('./fase4/fase4.module').then( m => m.Fase4PageModule)
+  },  {
+    path: 'pedidios',
+    loadChildren: () => import('./pedidios/pedidios.module').then( m => m.PedidiosPageModule)
   },
+
 ];
 
 @NgModule({
