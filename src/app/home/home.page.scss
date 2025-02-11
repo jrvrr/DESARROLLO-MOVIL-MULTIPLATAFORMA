@@ -45,6 +45,10 @@
   color: white;
 }
 
+.hero-content{
+  padding:10px;
+}
+
 .hero-content ion-buttons{
   display: flex;
   flex-wrap: wrap;
@@ -281,7 +285,7 @@ ion-icon {
 
       ion-button {
         font-size: 18px;
-        width: 100%;
+        width: 270px;
         border-radius: 50px;
       }
     }

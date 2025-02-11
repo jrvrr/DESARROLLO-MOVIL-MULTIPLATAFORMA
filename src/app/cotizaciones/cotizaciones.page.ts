@@ -4,12 +4,13 @@ import { NavController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
 @Component({
-  selector: 'app-pedidios',
-  templateUrl: './pedidios.page.html',
-  styleUrls: ['./pedidios.page.scss'],
+  selector: 'app-cotizaciones',
+  templateUrl: './cotizaciones.page.html',
+  styleUrls: ['./cotizaciones.page.scss'],
   standalone: false
 })
-export class PedidiosPage implements OnInit {
+export class CotizacionesPage implements OnInit {
+
 
   visible: boolean = false;
   menu: string = '';
@@ -31,5 +32,4 @@ export class PedidiosPage implements OnInit {
   enviarMensaje() {
     this.dataService.cambiarMensaje(this.menu);
   }
-
 }

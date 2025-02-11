@@ -9,6 +9,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'cotizaciones/:menu',
+    loadChildren: () => import('./cotizaciones/cotizaciones.module').then( m => m.CotizacionesPageModule)
+  },
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
@@ -18,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'compras/:menu',
+    path: 'compras',
     loadChildren: () => import('./compras/compras.module').then( m => m.ComprasPageModule)
   },
   {
@@ -48,10 +52,16 @@ const routes: Routes = [
   {
     path: 'fase4',
     loadChildren: () => import('./fase4/fase4.module').then( m => m.Fase4PageModule)
-  },  {
+  },
+  {
     path: 'pedidios',
     loadChildren: () => import('./pedidios/pedidios.module').then( m => m.PedidiosPageModule)
   },
+  {
+    path: 'cotizaciones',
+    loadChildren: () => import('./cotizaciones/cotizaciones.module').then( m => m.CotizacionesPageModule)
+  },
+
 
 ];
 
