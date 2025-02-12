@@ -58,7 +58,6 @@ export class HomePage {
         component: LoginPage,
         breakpoints: [0, 1, 1],
         initialBreakpoint: 1,
-        backdropDismiss: true, // Permite cerrar el modal al tocar el fondo
       });
     
       // Reactiva las interacciones al cerrar el modal
