@@ -8,12 +8,12 @@
     </ion-header>
     <ion-content class="menu-content">
       <ion-list>
-        <ion-item routerLink="/home" routerDirection="root">
+        <ion-item [routerLink]="['/cotizaciones', 'true']" routerDirection="root">
           <ion-icon name="home-outline" slot="start"></ion-icon>
           <ion-label>Inicio</ion-label>
         </ion-item>
         
-        <ion-item [routerLink]="['/cotizaciones', 'true']" routerDirection="root" (click)="logNavegacion('compras')">
+        <ion-item [routerLink]="['/pedidios']" routerDirection="root" (click)="logNavegacion('compras')">
           <ion-icon name="cart-outline" slot="start"></ion-icon>
           <ion-label>Pedidos</ion-label>
         </ion-item>
@@ -39,12 +39,15 @@
   </ion-menu>
 
   <div class="ion-page" id="main-content">
+
+    
+    
     <ion-header *ngIf="menuVisible">
       <ion-toolbar>
 
         <!-- Botón menú con logo -->
         <ion-buttons slot="start">
-          <ion-menu-button>
+          <ion-menu-button color="light">
             <!--<img src="assets/icon/logo.vanguard.png" alt="Logo Vanguard">-->
           </ion-menu-button>
         </ion-buttons>

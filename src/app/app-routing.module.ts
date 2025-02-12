@@ -64,6 +64,10 @@ const routes: Routes = [
     path: 'procerotu',
     loadChildren: () => import('./procerotu/procerotu.module').then( m => m.ProcerotuPageModule)
   },
+  {
+    path: 'estacion',
+    loadChildren: () => import('./estacion/estacion.module').then( m => m.EstacionPageModule)
+  },
 
 
 
