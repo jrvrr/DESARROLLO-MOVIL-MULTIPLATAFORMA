@@ -31,6 +31,24 @@
 
 /*inicio*/
 
+.button-coti {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #FFC107 !important;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.button-coti::part(native) {
+  background-color: #FFC107 !important;
+  color: white !important;
+}
+
 .hero-section {
   position: relative;
   width: 100%;
@@ -216,6 +234,7 @@ ion-icon {
 
 /*datos empresa y contactanos*/
 .contactanos {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -389,7 +408,7 @@ ion-icon {
       }
   
       img {
-        width: 30px;
+        width: 40px;
 
       }
     }

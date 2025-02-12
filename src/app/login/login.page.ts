@@ -2,6 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   standalone: false,
@@ -16,7 +18,9 @@ export class LoginPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private alertController: AlertController,
-    private dataService: DataService
+    private dataService: DataService,
+    private toastController: ToastController
+
   )   
   {
     this.loginForm = this.fb.group({
@@ -47,8 +51,6 @@ export class LoginPage implements OnInit {
     }
   }
 
-
-
   async login() {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
@@ -58,23 +60,30 @@ export class LoginPage implements OnInit {
     if (savedLogin) {
       const loginData = JSON.parse(savedLogin);
   
-      if (email === loginData.email && password === loginData.password) {
-        if (rememberMe) {
-          localStorage.setItem('rememberedUser', email);
-        } else {
-          localStorage.removeItem('rememberedUser');
-        }
-  
-        await this.showAlert('Inicio de sesión exitoso', 'Bienvenido de nuevo.');
-        console.log('Usuario autenticado');
-  
-      } else {
-        await this.showAlert('Error', 'Correo o contraseña incorrectos.');
+      if (email !== loginData.email) {
+        await this.showAlert('Error', 'El usuario no existe.');
+        return;
       }
+  
+      if (password !== loginData.password) {
+        await this.showAlert('Error', 'Contraseña incorrecta.');
+        return;
+      }
+  
+      if (rememberMe) {
+        localStorage.setItem('rememberedUser', email);
+      } else {
+        localStorage.removeItem('rememberedUser');
+      }
+  
+      await this.showAlert('Inicio de sesión exitoso', 'Bienvenido de nuevo.');
+      console.log('Usuario autenticado');
+  
     } else {
       await this.showAlert('Error', 'No hay datos de usuario guardados.');
     }
   }
+  
   
 
   

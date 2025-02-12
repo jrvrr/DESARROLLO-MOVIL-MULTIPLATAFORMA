@@ -60,7 +60,11 @@ const routes: Routes = [
   {
     path: 'cotizaciones',
     loadChildren: () => import('./cotizaciones/cotizaciones.module').then( m => m.CotizacionesPageModule)
+  },  {
+    path: 'procerotu',
+    loadChildren: () => import('./procerotu/procerotu.module').then( m => m.ProcerotuPageModule)
   },
+
 
 
 ];

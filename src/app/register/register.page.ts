@@ -25,7 +25,7 @@ export class RegisterPage implements OnInit {
       email: ['', [
         Validators.required,
         Validators.email,
-        Validators.pattern('^[a-zA-Z0-9._%+-]+@(gmail\\.com|email\\.com)$') // Soporte para gmail.com y email.com
+        Validators.pattern('^[a-zA-Z0-9._%+-]+@(gmail\\.com|email\\.com|hotmail\\.com|outlook\\.com)$') 
       ]],
       password: ['', [
         Validators.required, 

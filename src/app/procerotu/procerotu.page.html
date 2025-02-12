@@ -1,0 +1,14 @@
+<ion-content>
+  <div class="carrusel-wrapper">
+    <div class="carrusel">
+      <div class="juego-carrusel" *ngFor="let juego of lista">
+        <ion-card>
+          <img [src]="juego.imagen" />
+          <ion-card-header>
+            <ion-card-subtitle>{{ juego.nombre }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

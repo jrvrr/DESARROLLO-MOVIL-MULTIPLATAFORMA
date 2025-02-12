@@ -1,0 +1,74 @@
+ion-content {
+    text-align: center;
+  }
+
+  span{
+    color: black;
+  }
+
+  .container {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    margin-top: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h2 {
+    color:black;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .custom-button {
+    height: 250px;
+    background: rgba(0, 0, 0, 0.226);
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px);
+  }
+
+  .custom-button img {
+    width: 100%;
+    height: 210px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .custom-button span {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .custom-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+  }
+

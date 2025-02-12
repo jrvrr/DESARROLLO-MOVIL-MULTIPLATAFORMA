@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cotizaciones</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="container">
+    <h2>Cotiza con nosotros</h2>
+    <p>
+      Para realizar una cotización, selecciona el tipo de producto que deseas e
+      ingresa una breve descripción de lo que necesitas.
+    </p>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cotizaciones</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="grid">
+      <button *ngFor="let item of items" class="custom-button" (click)="selectItem(item)">
+        <img [src]="item.image" alt="{{ item.title }}" />
+        <span>{{ item.title }}</span>
+      </button>
+    </div>
+  </div>
 </ion-content>
